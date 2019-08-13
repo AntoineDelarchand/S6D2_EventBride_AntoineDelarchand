@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @event.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @end_date %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @event.duration %> min
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @event.title.upcase %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @event.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @event.price %>€
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @event.location.capitalize %>
+</p>
+
+<p>
+    <strong>Organizer name:</strong>
+    <%= organizer.first_name %>
+    <%= organizer.last_name %>
+</p>
+
+<p>
+    <strong>Organizer:</strong>
+    <%= organizer.email %>
+</p>
+
+<p>
+    <strong>Attendance:</strong>
+    <%= @event.attendances.count %>
+</p>
+
+   <% if current_user && current_user.id == @event.user_id %> 
+    <%= link_to 'Edit', edit_event_path(@event) %> |
+    <%= link_to 'Destroy', @event, method: :delete, data: { confirm: 'Are you sure?' } %> |
+    <% end %> 
+    <%= link_to 'Back', events_path %>
+   
